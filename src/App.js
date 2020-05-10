@@ -5,7 +5,15 @@ import ColorPicker from "./components/ColorPicker/ColorPicker";
 import GameTimer from "./components/GameTimer/GamerTimer";
 import NewGameButton from "./components/NewGameButton/NewGameButton";
 
+const color = ["#7CCCE5", "#FDE47F", "#E04644", "#B576AD"];
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      selectedColor: 0,
+    };
+  }
   render() {
     return (
       <div className='App'>
