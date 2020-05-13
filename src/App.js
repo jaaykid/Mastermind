@@ -43,7 +43,9 @@ class App extends Component {
             <NewGameButton />
           </div>
         </div>
-        <footer>{winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!'}</footer>
+        <footer className='App-footer'>
+          {winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!'}
+        </footer>
       </div>
     );
   }
