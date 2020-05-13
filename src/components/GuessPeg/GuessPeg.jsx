@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react';
+import './GuessPeg.css';
 
-const GuessPeg = () => <div>Guess Peg</div>;
+const GuessPeg = (props) => {
+  return <div className='peg' style={{ backgroundColor: props.color }} />;
+};
 
 export default GuessPeg;

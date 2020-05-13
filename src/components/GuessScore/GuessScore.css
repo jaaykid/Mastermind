@@ -1,0 +1,15 @@
+.GuessScore {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 24px;
+}
+
+.base {
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  border: 2px solid;
+  border-radius: 50%;
+}
