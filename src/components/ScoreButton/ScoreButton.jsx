@@ -1,7 +1,13 @@
 import React from 'react';
-import './ScoreButton.css';
+import styles from './ScoreButton.module.css';
 
-const ScoreButton = (props) => 
-  <button className='score-button btn btn-default'>✔</button>;
+const ScoreButton = (props) => (
+  <button
+    className={`${styles.button} btn btn-default`}
+    disabled={props.disabled}
+    onClick={props.handleScoreClick}>
+    ✔
+  </button>
+);
 
 export default ScoreButton;

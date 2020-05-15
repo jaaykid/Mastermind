@@ -4,11 +4,11 @@
   align-items: center;
 }
 
-.color-button:hover {
+.button:hover {
   opacity: 1;
 }
 
-.color-button {
+.button {
   width: 40px;
   height: 40px;
   margin: 5px;
@@ -17,3 +17,10 @@
   opacity: 0.85;
   cursor: pointer;
 }
+
+/* @media screen and (min-width: 350px) {
+  .button {
+    height: 30px;
+    width: 30px;
+  }
+} */
