@@ -1,7 +1,7 @@
 import React from 'react';
 
-const NewGameButton = ({ handleGameStart }) => (
-  <button className='btn btn-default' onClick={() => handleGameStart()}>
+const NewGameButton = ({ handleNewGameClick }) => (
+  <button className='btn btn-default' onClick={() => handleNewGameClick()}>
     New Game
   </button>
 );
