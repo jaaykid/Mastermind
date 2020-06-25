@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import './App.css';
-import GameBoard from './components/GameBoard/GameBoard';
-import ColorPicker from './components/ColorPicker/ColorPicker';
-import GameTimer from './components/GameTimer/GameTimer';
-import NewGameButton from './components/NewGameButton/NewGameButton';
+// import './App.css';
+import GamePage from '../../pages/GamePage/GamePage';
+import { Route, Switch } from 'react-router-dom';
+import SettingsPage from '../SettingsPage/SettingsPage';
 
-const colors = ['#7CCCE5', '#FDE47F', '#E04644', '#B576AD'];
+const colors = {
+  easy: ['#7CCCE5', '#FDE47F', '#E04644', '#B576AD'],
+  medium: ['#6a0dad', '#0000ff', '#ffc0cb', '#90ee90', '#ffa500'],
+  hard: ['#ffc0cb', '#ffff00', '#00bfff', '#008000', '#ff0000', '#ffa500'],
+};
 
 class App extends Component {
-  state = this.getInitialState();
+  state = {
+    difficulty: 'easy',
+    ...this.getInitialState(),
+  };
 
   getInitialState() {
     return {
@@ -130,31 +136,48 @@ class App extends Component {
     });
   };
 
+  handleDifficultyClick = (difficulty) => {
+    this.setState(
+      {
+        ...this.state,
+        difficulty: difficulty,
+      },
+      () => this.handleNewGameClick()
+    );
+  };
+
   render() {
     let winTries = this.getWinTries();
     return (
       <div className='App'>
         <header className='App-header'>Mastermind</header>
-        <div className='flex-h align-flex-end'>
-          <GameBoard
-            colors={colors}
-            guesses={this.state.guesses}
-            handlePegClick={this.handlePegClick}
-            handleScoreClick={this.handleScoreClick}
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <GamePage
+                winTries={winTries}
+                colors={colors[this.state.difficulty]}
+                selColorIdx={this.state.selColorIdx}
+                guesses={this.state.guesses}
+                handleColorSelection={this.handleColorSelection}
+                handleNewGameClick={this.handleNewGameClick}
+                handlePegClick={this.handlePegClick}
+                handleScoreClick={this.handleScoreClick}
+              />
+            )}
           />
-          <div className='App-controls'>
-            <ColorPicker
-              colors={colors}
-              selColorIdx={this.state.selColorIdx}
-              handleColorSelection={this.handleColorSelection}
-            />
-            <GameTimer />
-            <NewGameButton handleNewGameClick={this.handleNewGameClick} />
-          </div>
-        </div>
-        <footer className='App-footer'>
-          {winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!'}
-        </footer>
+          <Route
+            path='/settings'
+            render={(props) => (
+              <SettingsPage
+                handleDifficultyClick={this.handleDifficultyClick}
+                colors={colors}
+                {...props}
+              />
+            )}></Route>
+        </Switch>
       </div>
     );
   }
