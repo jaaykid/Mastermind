@@ -11,19 +11,37 @@ const SettingsPage = (props) => {
       </div>
       <div className='btn-column'>
         <div className='row'>
-          <button onClick={() => props.handleDifficultyClick('easy')}>Easy</button>
+          <button
+            onClick={() => {
+              // eslint-disable-next-line
+              props.handleDifficultyClick('easy'), props.history.push('/');
+            }}>
+            Easy
+          </button>
           {props.colors.easy.map((color) => (
             <span className='colors' style={{ backgroundColor: color }}></span>
           ))}
         </div>
         <div className='row'>
-          <button onClick={() => props.handleDifficultyClick('medium')}>Medium</button>
+          <button
+            onClick={() => (
+              // eslint-disable-next-line
+              props.handleDifficultyClick('medium'), props.history.push('/')
+            )}>
+            Medium
+          </button>
           {props.colors.medium.map((color) => (
             <span className='colors' style={{ backgroundColor: color }}></span>
           ))}
         </div>
         <div className='row'>
-          <button onClick={() => props.handleDifficultyClick('hard')}>Hard</button>
+          <button
+            onClick={() => (
+              // eslint-disable-next-line
+              props.handleDifficultyClick('hard'), props.history.push('/')
+            )}>
+            Hard
+          </button>
           {props.colors.hard.map((color) => (
             <span className='colors' style={{ backgroundColor: color }}></span>
           ))}
