@@ -10,7 +10,6 @@ function formatTime(seconds) {
 }
 class GameTimer extends Component {
   handleTick = () => {
-    console.log('running');
     if (this.props.perfect === 4) {
       clearInterval(this.timerId);
     }
