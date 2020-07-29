@@ -15,6 +15,9 @@ const GamePage = ({
   selColorIdx,
   handleColorSelection,
   handleNewGameClick,
+  handleTimerUpdate,
+  elapsedTime,
+  perfect,
 }) => {
   return (
     <div className='App'>
@@ -31,7 +34,11 @@ const GamePage = ({
             selColorIdx={selColorIdx}
             handleColorSelection={handleColorSelection}
           />
-          <GameTimer />
+          <GameTimer
+            elapsedTime={elapsedTime}
+            handleTimerUpdate={handleTimerUpdate}
+            perfect={perfect}
+          />
           <Link className='btn btn-default margin-bottom' to='/settings'>
             Difficulty
           </Link>

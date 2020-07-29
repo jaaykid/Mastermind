@@ -3,49 +3,42 @@ import './SettingsPage.css';
 import { Link } from 'react-router-dom';
 
 const SettingsPage = (props) => {
-  return (
-    <div>
-      <Link to='/'>HOME</Link>
-      <div className='flex-h'>
-        <h1 className='settings-header'>Set Difficulty Level</h1>
+  const selectedLevelStyle = {
+    border: '2px solid #333',
+  };
+
+  let handleDifficultyChange = (level) => {
+    props.handleDifficultyChange(level);
+    props.history.push('/');
+  };
+
+  const colorKeys = Object.keys(props.colors);
+
+  const levels = colorKeys.map((level) => (
+    <div className='difficulty-level-row' key={level}>
+      <button
+        className='difficulty-level-btn btn btn-default'
+        style={level === props.difficulty ? selectedLevelStyle : null}
+        disabled={level === props.difficulty}
+        onClick={() => handleDifficultyChange(level)}>
+        {level}
+      </button>
+      <div className='difficulty-level-colors'>
+        {props.colors[level].map((color) => (
+          <div className='difficulty-color' style={{ backgroundColor: color }} key={color} />
+        ))}
       </div>
-      <div className='btn-column'>
-        <div className='row'>
-          <button
-            onClick={() => {
-              // eslint-disable-next-line
-              props.handleDifficultyClick('easy'), props.history.push('/');
-            }}>
-            Easy
-          </button>
-          {props.colors.easy.map((color) => (
-            <span className='colors' style={{ backgroundColor: color }}></span>
-          ))}
-        </div>
-        <div className='row'>
-          <button
-            onClick={() => (
-              // eslint-disable-next-line
-              props.handleDifficultyClick('medium'), props.history.push('/')
-            )}>
-            Medium
-          </button>
-          {props.colors.medium.map((color) => (
-            <span className='colors' style={{ backgroundColor: color }}></span>
-          ))}
-        </div>
-        <div className='row'>
-          <button
-            onClick={() => (
-              // eslint-disable-next-line
-              props.handleDifficultyClick('hard'), props.history.push('/')
-            )}>
-            Hard
-          </button>
-          {props.colors.hard.map((color) => (
-            <span className='colors' style={{ backgroundColor: color }}></span>
-          ))}
-        </div>
+    </div>
+  ));
+
+  return (
+    <div className='settings'>
+      <header className='header'>Set Difficulty Level</header>
+      <div>{levels}</div>
+      <div>
+        <Link className='settings-cancel btn btn-default btn-sm' to='/'>
+          Cancel
+        </Link>
       </div>
     </div>
   );

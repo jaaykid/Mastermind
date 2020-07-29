@@ -1,30 +1,34 @@
-.btn-column {
+.settings {
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
-.row {
+.difficulty-level-row {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-flow: row nowrap;
+  margin-bottom: 20px;
 }
 
-.colors {
+.difficulty-level-row button {
+  width: 86px;
+  margin: 10px;
+}
+
+.difficulty-level-colors {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.difficulty-color {
   width: 40px;
   height: 40px;
   margin: 5px;
-  border-width: 14px;
   border-radius: 50%;
   opacity: 0.85;
 }
 
-.settings-header {
-  height: 50px;
-  padding: 10px;
-  margin: 15px 0;
-  color: grey;
-  font-size: 25px;
-  letter-spacing: 5px;
-  text-align: center;
-  font-weight: 800;
+.difficulty-cancel {
+  width: 100px;
 }
