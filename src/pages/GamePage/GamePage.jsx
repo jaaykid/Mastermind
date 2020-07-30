@@ -17,7 +17,7 @@ const GamePage = ({
   handleNewGameClick,
   handleTimerUpdate,
   elapsedTime,
-  perfect,
+  timerOn,
 }) => {
   return (
     <div className='App'>
@@ -37,7 +37,7 @@ const GamePage = ({
           <GameTimer
             elapsedTime={elapsedTime}
             handleTimerUpdate={handleTimerUpdate}
-            perfect={perfect}
+            timerOn={timerOn}
           />
           <Link className='btn btn-default margin-bottom' to='/settings'>
             Difficulty

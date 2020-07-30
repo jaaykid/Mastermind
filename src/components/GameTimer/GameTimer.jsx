@@ -10,8 +10,8 @@ function formatTime(seconds) {
 }
 class GameTimer extends Component {
   handleTick = () => {
-    if (this.props.perfect === 4) {
-      clearInterval(this.timerId);
+    if (!this.props.timerOn) {
+      return;
     }
     this.props.handleTimerUpdate();
   };

@@ -24,6 +24,7 @@ class App extends Component {
       guesses: [this.getNewGuess()],
       code: this.genCode(),
       elapsedTime: 0,
+      timerOn: true,
     };
   }
 
@@ -117,6 +118,7 @@ class App extends Component {
 
     this.setState({
       guesses: guessesCopy,
+      timerOn: perfect !== 4,
     });
   };
 
@@ -155,7 +157,7 @@ class App extends Component {
                 handleScoreClick={this.handleScoreClick}
                 handleTimerUpdate={this.handleTimerUpdate}
                 elapsedTime={this.state.elapsedTime}
-                perfect={this.state.guesses[0].score.perfect}
+                timerOn={this.state.timerOn}
               />
             )}
           />
