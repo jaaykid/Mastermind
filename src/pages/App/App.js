@@ -134,7 +134,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('app');
     let winTries = this.getWinTries();
     return (
       <div className='App'>
