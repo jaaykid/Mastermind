@@ -16,8 +16,6 @@ class App extends Component {
     ...this.getInitialState(),
   };
 
-  componentDidMount() {}
-
   getInitialState() {
     return {
       selColorIdx: 0,
@@ -43,7 +41,6 @@ class App extends Component {
   }
 
   getWinTries() {
-    // if winner, return num guesses, otherwise 0 (no winner)
     let lastGuess = this.state.guesses.length - 1;
     return this.state.guesses[lastGuess].score.perfect === 4 ? lastGuess + 1 : 0;
   }
@@ -133,10 +130,11 @@ class App extends Component {
   };
 
   handleTimerUpdate = () => {
-    this.setState((state) => ({ elapsedTime: state.elapsedTime++ }));
+    this.setState((state) => ({ elapsedTime: ++state.elapsedTime }));
   };
 
   render() {
+    console.log('app');
     let winTries = this.getWinTries();
     return (
       <div className='App'>
