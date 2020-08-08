@@ -43,6 +43,9 @@ const GamePage = ({
             Difficulty
           </Link>
           <NewGameButton handleNewGameClick={handleNewGameClick} />
+          <Link className='btn btn-default' to='/how-to-play'>
+            How to play
+          </Link>
         </div>
       </div>
       <footer className='App-footer'>

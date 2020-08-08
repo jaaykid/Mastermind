@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GamePage from '../../pages/GamePage/GamePage';
 import { Route, Switch } from 'react-router-dom';
 import SettingsPage from '../SettingsPage/SettingsPage';
+import Directions from '../Directions/Directions';
 
 const colors = {
   easy: ['#7CCCE5', '#FDE47F', '#E04644', '#B576AD'],
@@ -168,6 +169,7 @@ class App extends Component {
                 {...props}
               />
             )}></Route>
+          <Route path='/how-to-play' component={Directions} />
         </Switch>
       </div>
     );

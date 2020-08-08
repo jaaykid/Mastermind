@@ -17,12 +17,10 @@ class GameTimer extends Component {
   };
 
   componentDidMount() {
-    console.log('mounted');
     this.timerId = setInterval(this.handleTick, 1000);
   }
 
   componentWillUnmount() {
-    console.log('unmounted');
     clearInterval(this.timerId);
   }
 
